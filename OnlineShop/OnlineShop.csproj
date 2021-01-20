@@ -63,6 +63,12 @@
     <Compile Include="EditItemsAdmin.Designer.cs">
       <DependentUpon>EditItemsAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="ItemsUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ItemsUser.Designer.cs">
+      <DependentUpon>ItemsUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="SignUpOrLogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,11 +76,11 @@
       <DependentUpon>SignUpOrLogIn.cs</DependentUpon>
     </Compile>
     <Compile Include="Item.cs" />
-    <Compile Include="ItemsList.cs">
+    <Compile Include="ItemsAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ItemsList.Designer.cs">
-      <DependentUpon>ItemsList.cs</DependentUpon>
+    <Compile Include="ItemsAdmin.Designer.cs">
+      <DependentUpon>ItemsAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="LogIn.cs">
       <SubType>Form</SubType>
@@ -84,12 +90,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShoppingBag.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ShoppingBag.Designer.cs">
-      <DependentUpon>ShoppingBag.cs</DependentUpon>
-    </Compile>
     <Compile Include="SignUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,14 +97,18 @@
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
     <Compile Include="SqliteDataAccess.cs" />
+    <Compile Include="VinegereCipher.cs" />
     <EmbeddedResource Include="EditItemsAdmin.resx">
       <DependentUpon>EditItemsAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemsUser.resx">
+      <DependentUpon>ItemsUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SignUpOrLogIn.resx">
       <DependentUpon>SignUpOrLogIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ItemsList.resx">
-      <DependentUpon>ItemsList.cs</DependentUpon>
+    <EmbeddedResource Include="ItemsAdmin.resx">
+      <DependentUpon>ItemsAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
@@ -118,9 +122,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ShoppingBag.resx">
-      <DependentUpon>ShoppingBag.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>

@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogInForm));
             this.LogInGroupBox = new System.Windows.Forms.GroupBox();
+            this.BackButton1 = new System.Windows.Forms.Button();
             this.LogInLogInButton = new System.Windows.Forms.Button();
             this.PasswordLogInTextBox = new System.Windows.Forms.TextBox();
             this.PasswordLogInLabel = new System.Windows.Forms.Label();
             this.UserNameLogInTextBox = new System.Windows.Forms.TextBox();
             this.UserNameLogInLabel = new System.Windows.Forms.Label();
             this.LogInPictureBox = new System.Windows.Forms.PictureBox();
-            this.BackButton1 = new System.Windows.Forms.Button();
             this.LogInGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogInPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -55,6 +55,16 @@
             this.LogInGroupBox.TabIndex = 35;
             this.LogInGroupBox.TabStop = false;
             this.LogInGroupBox.Text = "Log In";
+            // 
+            // BackButton1
+            // 
+            this.BackButton1.Location = new System.Drawing.Point(6, 125);
+            this.BackButton1.Name = "BackButton1";
+            this.BackButton1.Size = new System.Drawing.Size(105, 23);
+            this.BackButton1.TabIndex = 44;
+            this.BackButton1.Text = "Back";
+            this.BackButton1.UseVisualStyleBackColor = true;
+            this.BackButton1.Click += new System.EventHandler(this.BackButton1_Click);
             // 
             // LogInLogInButton
             // 
@@ -88,6 +98,7 @@
             this.UserNameLogInTextBox.Name = "UserNameLogInTextBox";
             this.UserNameLogInTextBox.Size = new System.Drawing.Size(135, 20);
             this.UserNameLogInTextBox.TabIndex = 35;
+            this.UserNameLogInTextBox.TextChanged += new System.EventHandler(this.UserNameLogInTextBox_TextChanged);
             // 
             // UserNameLogInLabel
             // 
@@ -107,16 +118,6 @@
             this.LogInPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.LogInPictureBox.TabIndex = 36;
             this.LogInPictureBox.TabStop = false;
-            // 
-            // BackButton1
-            // 
-            this.BackButton1.Location = new System.Drawing.Point(6, 125);
-            this.BackButton1.Name = "BackButton1";
-            this.BackButton1.Size = new System.Drawing.Size(105, 23);
-            this.BackButton1.TabIndex = 44;
-            this.BackButton1.Text = "Back";
-            this.BackButton1.UseVisualStyleBackColor = true;
-            this.BackButton1.Click += new System.EventHandler(this.BackButton1_Click);
             // 
             // LogInForm
             // 

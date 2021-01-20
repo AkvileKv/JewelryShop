@@ -30,10 +30,10 @@
         {
             this.MenuListBox = new System.Windows.Forms.ListBox();
             this.AddNewItemGroupBox = new System.Windows.Forms.GroupBox();
+            this.CategoryNumericBox = new System.Windows.Forms.NumericUpDown();
             this.SaveButton = new System.Windows.Forms.Button();
             this.DetailsTextBox = new System.Windows.Forms.TextBox();
             this.PriceTextBox = new System.Windows.Forms.TextBox();
-            this.CategoryTextBox = new System.Windows.Forms.TextBox();
             this.CategoryIDLabel = new System.Windows.Forms.Label();
             this.DetailsLabel = new System.Windows.Forms.Label();
             this.PriceLabel = new System.Windows.Forms.Label();
@@ -43,18 +43,13 @@
             this.SaveNewItemButton = new System.Windows.Forms.Button();
             this.NewPriceTextBox = new System.Windows.Forms.TextBox();
             this.NewPriceLabel = new System.Windows.Forms.Label();
-            this.UpdateItemNameTextBox = new System.Windows.Forms.TextBox();
-            this.NameUpdateItemLabel = new System.Windows.Forms.Label();
             this.RemoveItemGroupBox = new System.Windows.Forms.GroupBox();
             this.RemoveItemButton = new System.Windows.Forms.Button();
-            this.RemoveNameTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.BackButton = new System.Windows.Forms.Button();
-            this.CategoryNumericBox = new System.Windows.Forms.NumericUpDown();
             this.AddNewItemGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CategoryNumericBox)).BeginInit();
             this.UpdateItemGroupBox.SuspendLayout();
             this.RemoveItemGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CategoryNumericBox)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuListBox
@@ -83,6 +78,28 @@
             this.AddNewItemGroupBox.TabStop = false;
             this.AddNewItemGroupBox.Text = "Add New Item";
             // 
+            // CategoryNumericBox
+            // 
+            this.CategoryNumericBox.Location = new System.Drawing.Point(92, 145);
+            this.CategoryNumericBox.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.CategoryNumericBox.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.CategoryNumericBox.Name = "CategoryNumericBox";
+            this.CategoryNumericBox.Size = new System.Drawing.Size(135, 20);
+            this.CategoryNumericBox.TabIndex = 49;
+            this.CategoryNumericBox.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // SaveButton
             // 
             this.SaveButton.Location = new System.Drawing.Point(103, 171);
@@ -106,14 +123,6 @@
             this.PriceTextBox.Name = "PriceTextBox";
             this.PriceTextBox.Size = new System.Drawing.Size(135, 20);
             this.PriceTextBox.TabIndex = 42;
-            // 
-            // CategoryTextBox
-            // 
-            this.CategoryTextBox.Location = new System.Drawing.Point(580, 11);
-            this.CategoryTextBox.Name = "CategoryTextBox";
-            this.CategoryTextBox.Size = new System.Drawing.Size(57, 20);
-            this.CategoryTextBox.TabIndex = 40;
-            this.CategoryTextBox.TextChanged += new System.EventHandler(this.CategoryTextBox_TextChanged);
             // 
             // CategoryIDLabel
             // 
@@ -163,8 +172,6 @@
             this.UpdateItemGroupBox.Controls.Add(this.SaveNewItemButton);
             this.UpdateItemGroupBox.Controls.Add(this.NewPriceTextBox);
             this.UpdateItemGroupBox.Controls.Add(this.NewPriceLabel);
-            this.UpdateItemGroupBox.Controls.Add(this.UpdateItemNameTextBox);
-            this.UpdateItemGroupBox.Controls.Add(this.NameUpdateItemLabel);
             this.UpdateItemGroupBox.Location = new System.Drawing.Point(316, 165);
             this.UpdateItemGroupBox.Name = "UpdateItemGroupBox";
             this.UpdateItemGroupBox.Size = new System.Drawing.Size(246, 116);
@@ -174,7 +181,7 @@
             // 
             // SaveNewItemButton
             // 
-            this.SaveNewItemButton.Location = new System.Drawing.Point(104, 79);
+            this.SaveNewItemButton.Location = new System.Drawing.Point(104, 63);
             this.SaveNewItemButton.Name = "SaveNewItemButton";
             this.SaveNewItemButton.Size = new System.Drawing.Size(105, 23);
             this.SaveNewItemButton.TabIndex = 34;
@@ -184,41 +191,24 @@
             // 
             // NewPriceTextBox
             // 
-            this.NewPriceTextBox.Location = new System.Drawing.Point(90, 53);
+            this.NewPriceTextBox.Location = new System.Drawing.Point(92, 37);
             this.NewPriceTextBox.Name = "NewPriceTextBox";
             this.NewPriceTextBox.Size = new System.Drawing.Size(135, 20);
             this.NewPriceTextBox.TabIndex = 43;
+            this.NewPriceTextBox.TextChanged += new System.EventHandler(this.NewPriceTextBox_TextChanged);
             // 
             // NewPriceLabel
             // 
             this.NewPriceLabel.AutoSize = true;
-            this.NewPriceLabel.Location = new System.Drawing.Point(22, 56);
+            this.NewPriceLabel.Location = new System.Drawing.Point(24, 40);
             this.NewPriceLabel.Name = "NewPriceLabel";
             this.NewPriceLabel.Size = new System.Drawing.Size(62, 13);
             this.NewPriceLabel.TabIndex = 37;
             this.NewPriceLabel.Text = "New Price: ";
             // 
-            // UpdateItemNameTextBox
-            // 
-            this.UpdateItemNameTextBox.Location = new System.Drawing.Point(90, 19);
-            this.UpdateItemNameTextBox.Name = "UpdateItemNameTextBox";
-            this.UpdateItemNameTextBox.Size = new System.Drawing.Size(135, 20);
-            this.UpdateItemNameTextBox.TabIndex = 35;
-            // 
-            // NameUpdateItemLabel
-            // 
-            this.NameUpdateItemLabel.AutoSize = true;
-            this.NameUpdateItemLabel.Location = new System.Drawing.Point(43, 22);
-            this.NameUpdateItemLabel.Name = "NameUpdateItemLabel";
-            this.NameUpdateItemLabel.Size = new System.Drawing.Size(41, 13);
-            this.NameUpdateItemLabel.TabIndex = 34;
-            this.NameUpdateItemLabel.Text = "Name: ";
-            // 
             // RemoveItemGroupBox
             // 
             this.RemoveItemGroupBox.Controls.Add(this.RemoveItemButton);
-            this.RemoveItemGroupBox.Controls.Add(this.RemoveNameTextBox);
-            this.RemoveItemGroupBox.Controls.Add(this.label2);
             this.RemoveItemGroupBox.Location = new System.Drawing.Point(316, 309);
             this.RemoveItemGroupBox.Name = "RemoveItemGroupBox";
             this.RemoveItemGroupBox.Size = new System.Drawing.Size(246, 79);
@@ -228,29 +218,13 @@
             // 
             // RemoveItemButton
             // 
-            this.RemoveItemButton.Location = new System.Drawing.Point(104, 45);
+            this.RemoveItemButton.Location = new System.Drawing.Point(104, 27);
             this.RemoveItemButton.Name = "RemoveItemButton";
             this.RemoveItemButton.Size = new System.Drawing.Size(105, 23);
             this.RemoveItemButton.TabIndex = 34;
             this.RemoveItemButton.Text = "Remove";
             this.RemoveItemButton.UseVisualStyleBackColor = true;
             this.RemoveItemButton.Click += new System.EventHandler(this.RemoveItemButton_Click);
-            // 
-            // RemoveNameTextBox
-            // 
-            this.RemoveNameTextBox.Location = new System.Drawing.Point(90, 19);
-            this.RemoveNameTextBox.Name = "RemoveNameTextBox";
-            this.RemoveNameTextBox.Size = new System.Drawing.Size(135, 20);
-            this.RemoveNameTextBox.TabIndex = 35;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 34;
-            this.label2.Text = "Name: ";
             // 
             // BackButton
             // 
@@ -262,28 +236,6 @@
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
-            // CategoryNumericBox
-            // 
-            this.CategoryNumericBox.Location = new System.Drawing.Point(92, 145);
-            this.CategoryNumericBox.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.CategoryNumericBox.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.CategoryNumericBox.Name = "CategoryNumericBox";
-            this.CategoryNumericBox.Size = new System.Drawing.Size(135, 20);
-            this.CategoryNumericBox.TabIndex = 49;
-            this.CategoryNumericBox.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // EditItemsAdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -293,7 +245,6 @@
             this.Controls.Add(this.RemoveItemGroupBox);
             this.Controls.Add(this.UpdateItemGroupBox);
             this.Controls.Add(this.AddNewItemGroupBox);
-            this.Controls.Add(this.CategoryTextBox);
             this.Controls.Add(this.MenuListBox);
             this.Name = "EditItemsAdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -301,13 +252,11 @@
             this.Load += new System.EventHandler(this.EditItemsAdminForm_Load);
             this.AddNewItemGroupBox.ResumeLayout(false);
             this.AddNewItemGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CategoryNumericBox)).EndInit();
             this.UpdateItemGroupBox.ResumeLayout(false);
             this.UpdateItemGroupBox.PerformLayout();
             this.RemoveItemGroupBox.ResumeLayout(false);
-            this.RemoveItemGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CategoryNumericBox)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -318,7 +267,6 @@
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.TextBox DetailsTextBox;
         private System.Windows.Forms.TextBox PriceTextBox;
-        private System.Windows.Forms.TextBox CategoryTextBox;
         private System.Windows.Forms.Label CategoryIDLabel;
         private System.Windows.Forms.Label DetailsLabel;
         private System.Windows.Forms.Label PriceLabel;
@@ -328,12 +276,8 @@
         private System.Windows.Forms.Button SaveNewItemButton;
         private System.Windows.Forms.TextBox NewPriceTextBox;
         private System.Windows.Forms.Label NewPriceLabel;
-        private System.Windows.Forms.TextBox UpdateItemNameTextBox;
-        private System.Windows.Forms.Label NameUpdateItemLabel;
         private System.Windows.Forms.GroupBox RemoveItemGroupBox;
         private System.Windows.Forms.Button RemoveItemButton;
-        private System.Windows.Forms.TextBox RemoveNameTextBox;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.NumericUpDown CategoryNumericBox;
     }

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignUpForm));
             this.SignUpGroupBox = new System.Windows.Forms.GroupBox();
+            this.ExitButton = new System.Windows.Forms.Button();
             this.GetStartedButton = new System.Windows.Forms.Button();
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.FirstNameTextBox = new System.Windows.Forms.TextBox();
@@ -42,7 +43,6 @@
             this.UserNameTextBox = new System.Windows.Forms.TextBox();
             this.UserNameLabel = new System.Windows.Forms.Label();
             this.SignUpPictureBox = new System.Windows.Forms.PictureBox();
-            this.ExitButton = new System.Windows.Forms.Button();
             this.SignUpGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SignUpPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -67,6 +67,16 @@
             this.SignUpGroupBox.TabIndex = 34;
             this.SignUpGroupBox.TabStop = false;
             this.SignUpGroupBox.Text = "Sign Up";
+            // 
+            // ExitButton
+            // 
+            this.ExitButton.Location = new System.Drawing.Point(6, 234);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(105, 23);
+            this.ExitButton.TabIndex = 44;
+            this.ExitButton.Text = "Back";
+            this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // GetStartedButton
             // 
@@ -167,16 +177,6 @@
             this.SignUpPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.SignUpPictureBox.TabIndex = 35;
             this.SignUpPictureBox.TabStop = false;
-            // 
-            // ExitButton
-            // 
-            this.ExitButton.Location = new System.Drawing.Point(6, 234);
-            this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(105, 23);
-            this.ExitButton.TabIndex = 44;
-            this.ExitButton.Text = "Back";
-            this.ExitButton.UseVisualStyleBackColor = true;
-            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // SignUpForm
             // 

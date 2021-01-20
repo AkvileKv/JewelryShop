@@ -11,17 +11,23 @@ namespace OnlineShop
         public List<Item> items = new List<Item>();
 
         public double totalPrice;
-   
-        public void addItemFromBag(Item item)
+        public double vatPrice;
+
+        public void AddItem(Item item)
         {
             items.Add(item);
             totalPrice += item.Price;
         }
 
-        public void removeItemFromBag(Item item)
+        public void RemoveItem(Item item)
         {
             items.Remove(item);
             totalPrice -= item.Price;
+        }
+
+        public void calculateVatPrice(Item item)
+        {
+            vatPrice = totalPrice * 0.21 + totalPrice;
         }
 
     }

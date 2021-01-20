@@ -14,20 +14,20 @@ namespace OnlineShop
         public double Price { get; set; }
         public int CategoryID { get; set; }
 
-        public string ShowMenu //parodys preke
+        public string ShowItemsList  //property(savybė)
         {
-            get
+            get //get method (grazina string)
             {
                 return $"{Name}, Price: {Price}Eur, Details: {Details}";
             }
         }
 
-        public string ShowNameAndPrice
+        public string ShowNameAndPrice //property(savybė)
         {
-            get
+            get //get method (grazina string)
             {
                 return $"{Name}, Price: {Price}Eur, ";
             }
-        }
+        }     
     }
 }

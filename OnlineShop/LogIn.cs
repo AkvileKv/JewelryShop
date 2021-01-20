@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace OnlineShop
 {
@@ -15,16 +16,98 @@ namespace OnlineShop
         public LogInForm()
         {
             InitializeComponent();
+            PasswordLogInTextBox.PasswordChar = '*';
+        }
+
+        // Cikliškai generuoja raktą, kol jo ilgis nėra lygus įvesto password ilgiui
+        public string GenerateKey(string passwordText, string key)
+        {
+            int passwordLength = passwordText.Length;
+
+            for (int i = 0; ; i++)
+            {
+                if (passwordLength == i)
+                    i = 0;
+                if (key.Length == passwordText.Length)
+                    break;
+                key += (key[i]);
+            }
+            return key;
+        }
+
+        // grąžina užkoduotą tekstą, sugeneruotą rakto pagalba 
+        public string CipherText(string passwordText, string key)
+        {
+            string cipherText = "";
+
+            for (int i = 0; i < passwordText.Length; i++)
+            {
+                // konvertavimo diapazonas 0-127 
+                int x = (passwordText[i] + key[i]) % 128;
+
+                // konvertuojam i simbolius (ASCII)             
+                x += '!'; // pradedam nuo !
+
+                cipherText += (char)(x);
+            }
+            return cipherText;
         }
 
         private void LogInLogInButton_Click(object sender, EventArgs e)
         {
-           
-            this.Hide();
-            iJewelryOnlineShopForm f1 = new iJewelryOnlineShopForm();
-            f1.ShowDialog();
-            this.Close();
+            if (UserNameLogInTextBox.Text == string.Empty || PasswordLogInTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Please fill in all fields");
+                return;
+            }
+            else
+            {
+                string query = "SELECT * FROM Customer WHERE Username=@Username AND Password = @Password"; //tikrinu, ar yra toks username and password DB
+                SQLiteConnection conn = new SQLiteConnection("Data Source=iShopDB.db;Version=3");
+                conn.Open();
+                SQLiteCommand cmd = new SQLiteCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Username", UserNameLogInTextBox.Text);
+                //------------------------------------------------------------------
+                string keyword = "cat"; //slaptazodis turi buti ne trumpesnis uz key
+                string str = PasswordLogInTextBox.Text;
 
+                string key = GenerateKey(str, keyword);
+                string cipherText = CipherText(str, key); 
+
+                //------------------------------------------------------------------
+                cmd.Parameters.AddWithValue("@Password", cipherText); //PasswordLogInTextBox.Text
+                SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
+
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0) //jei randa mano ieskoma username and password
+                {
+                    if(UserNameLogInTextBox.Text == "admin" && PasswordLogInTextBox.Text == "admin123")
+                    {
+                        MessageBox.Show("Login as Admin Successful");
+
+                        this.Hide();
+                        iJewelryOnlineShopForm f1 = new iJewelryOnlineShopForm();
+                        f1.ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Login Successful");
+                        this.Hide();
+                        ItemsUserForm f2 = new ItemsUserForm();
+                        f2.ShowDialog();
+                        this.Close();
+                    }                  
+                }           
+                else
+                {
+                    MessageBox.Show("This user does not exist!");
+                }
+
+                
+            }
         }
 
         private void BackButton1_Click(object sender, EventArgs e)
@@ -33,6 +116,11 @@ namespace OnlineShop
             Form1iJewelryShop f1 = new Form1iJewelryShop();
             f1.ShowDialog();
             this.Close();
+        }
+
+        private void UserNameLogInTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

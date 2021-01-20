@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace OnlineShop
 {
@@ -30,7 +31,7 @@ namespace OnlineShop
         {
             MenuListBox.DataSource = null;
             MenuListBox.DataSource = itemsList;
-            MenuListBox.DisplayMember = "ShowMenu"; //parodys  dishesList'e esancia info
+            MenuListBox.DisplayMember = "ShowItemsList"; //parodys  dishesList'e esancia info
         }
 
         private void BackButton_Click(object sender, EventArgs e)
@@ -48,41 +49,58 @@ namespace OnlineShop
 
         private void SaveButton_Click(object sender, EventArgs e) //irasau nauja irasa
         {
-            Item i = new Item();
+            if (UserNameTextBox.Text == string.Empty || DetailsTextBox.Text == string.Empty || PriceTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Please fill in all fields");
+                return;
+            }
+            else
+            {     
+                  Item i = new Item();
 
-            i.Name = UserNameTextBox.Text;
-            i.Details = DetailsTextBox.Text;
-            i.Price = double.Parse(PriceTextBox.Text); // string convert to double
-            i.CategoryID = (int)CategoryNumericBox.Value;
+                i.Name = UserNameTextBox.Text;
+                i.Details = DetailsTextBox.Text;
+                i.Price = double.Parse(PriceTextBox.Text); // string convert to double
+                i.CategoryID = (int)CategoryNumericBox.Value;
 
-            SqliteDataAccess.SaveItem(i);
-        
+                SqliteDataAccess.SaveItem(i);
 
-        }
+                LoadItemsList();
+                UserNameTextBox.Clear();
+                DetailsTextBox.Clear();
+                PriceTextBox.Clear();
 
-        private void CategoryTextBox_TextChanged(object sender, EventArgs e)
-        {
+                MessageBox.Show("New record added");
+            }
+            }
 
-        }
 
         private void RemoveItemButton_Click(object sender, EventArgs e) //naikinu irasa
-        {
-            Item i = new Item();
+        {  
+            Item selectedItem = (Item)MenuListBox.SelectedItem;
+            SqliteDataAccess.DeleteItem(selectedItem);
+            LoadItemsList();
 
-            RemoveNameTextBox.Text = i.Name;
+            MessageBox.Show("Record deleted");
 
-            SqliteDataAccess.DeleteItem(i);
         }
 
-        private void SaveNewItemButton_Click(object sender, EventArgs e)
+        private void SaveNewItemButton_Click(object sender, EventArgs e)  //Pakeicia kaina
         {
-            Item u = new Item();
+            Item selectedItem = (Item)MenuListBox.SelectedItem;
+            selectedItem.Price = double.Parse(NewPriceTextBox.Text);
+            SqliteDataAccess.UpdateItem(selectedItem);
+            LoadItemsList();
 
-            UpdateItemNameTextBox.Text = u.Name;
-            u.Price = double.Parse(NewPriceTextBox.Text);
+            NewPriceTextBox.Clear();
 
+            MessageBox.Show("Record updateded");              
 
-            SqliteDataAccess.UpdateItem(u);
+        }
+
+        private void NewPriceTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
